@@ -5,7 +5,6 @@ Version: 0.1.0
 Author@R: person("Juliette", "Grison",
     email = "juliette.grison@gmail.com",
     role = c("aut", "cre"))
-Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Un système pour fournir des outils pour l'analyse des données des élus locaux en France. 
     Il permet de valider le format des données, de calculer des statistiques sur les élus (âge, fonction, distribution des professions, etc.), 
     et de visualiser certaines distributions sous forme de graphiques. 
