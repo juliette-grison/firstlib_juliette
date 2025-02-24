@@ -1,4 +1,4 @@
-#' Jeu de données des communes
+#' Jeu de données
 #'
 #' Ce jeu de données contient des informations sur les élus d'une zone géographique spécifique en France, incluant leur catégorie socio-professionnelle, leur fonction et des détails administratifs.
 #'
@@ -23,7 +23,7 @@
 #' }
 #' @source Données collectées auprès de sources publiques officielles : https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/
 #' @examples
-#' data(df_commune)
-"df_commune"
+#' data(df)
+"df"
 
 

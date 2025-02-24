@@ -11,13 +11,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' df_commune <- data.frame(
+#' df <- data.frame(
 #'   Libellé.de.la.commune = "Paris",
 #'   Libellé.du.département = "Paris",
 #'   Code.de.la.catégorie.socio.professionnelle = c("A", "B", "C"),
 #'   stringsAsFactors = FALSE
 #' )
-#' commune_obj <- creer_commune(df_commune)
+#' commune_obj <- creer_commune(df)
 #' class(commune_obj) # "commune"
 #' }
 #'

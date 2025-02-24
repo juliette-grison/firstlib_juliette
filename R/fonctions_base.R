@@ -17,7 +17,10 @@
 #' @return Cette fonction ne retourne pas de valeur mais indique un message d'erreur si le schéma ne correspond pas.
 #'
 #' @examples
-#' validate_schema(df)
+#' df <- data.frame(Code.du.département = integer(),
+#'                  Libellé.du.département = character(),
+#'                  Code.de.la.commune = integer(),
+#'                  Nom.de.l.élu = character())
 
 validate_schema <- function(df) {
   schema <- c("Code.du.département", "Libellé.du.département", "Code.de.la.collectivité.à.statut.particulier",
@@ -38,8 +41,10 @@ validate_schema <- function(df) {
 #' @return Un  nombre unique d’élus basés sur l’unicité du triplet nom/prénom/date de naissance.
 #'
 #' @examples
+#' df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin", "Dupont"),
+#'                  Prénom.de.l.élu = c("Jean", "Sophie", "Jean"),
+#'                  Date.de.naissance = c("01/01/1980", "15/07/1975", "01/01/1980"))
 #' @importFrom dplyr select distinct
-#' compter_nombre_d_elus(df)
 
 compter_nombre_d_elus <- function(df) {
   validate_schema(df)
@@ -57,8 +62,12 @@ compter_nombre_d_elus <- function(df) {
 #' @return Un entier représentant le nombre d'adjoints.
 #'
 #' @examples
+#' df_exemple <- data.frame(
+#'   Nom.de.l.élu = c("Dupont", "Martin", "Durand"),
+#'   Prénom.de.l.élu = c("Jean", "Sophie", "Paul"),
+#'   Libellé.de.la.fonction = c("Maire", "Adjoint au maire", "Adjoint aux sports")
+#' )
 #' @importFrom dplyr filter
-#' compter_nombre_d_adjoints(df)
 
 compter_nombre_d_adjoints <- function(df) {
   validate_schema(df)
@@ -76,9 +85,11 @@ compter_nombre_d_adjoints <- function(df) {
 #' @return Un objet contenant le nom, le prénom, et l’âge de l’élu.
 #'
 #' @examples
+#' df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin"),
+#'                  Prénom.de.l.élu = c("Jean", "Sophie"),
+#'                  Date.de.naissance = c("01/01/1950", "15/07/1975"))
 #' @importFrom dplyr mutate slice select
 #' @importFrom lubridate dmy interval years
-#' trouver_l_elu_le_plus_age(df)
 
 trouver_l_elu_le_plus_age <- function(df) {
   validate_schema(df)
@@ -97,11 +108,10 @@ trouver_l_elu_le_plus_age <- function(df) {
 #'
 #' @param df Un data frame contenant la date de naissance des élus.
 #' @return Un objet contenant les quantiles 0, 25, 50, 75, 100 de l’age des élus.
-#'
 #' @examples
+#' df <- data.frame(Date.de.naissance = c("01/01/1950", "15/07/1975", "10/03/1990"))
 #' @importFrom dplyr mutate summarise select
 #' @importFrom lubridate dmy
-#' calcul_distribution_age(df)
 
 calcul_distribution_age <- function(df) {
   validate_schema(df)
@@ -126,9 +136,9 @@ calcul_distribution_age <- function(df) {
 #' @return Un bar chart contenant le nombre d'élus pour chaque code professionnel.
 #'
 #' @examples
+#' df <- data.frame(Code.de.la.catégorie.socio.professionnelle = c("A", "B", "A", "C", "B", "A"))
 #' @importFrom dplyr group_by summarise arrange
 #' @importFrom ggplot2 ggplot aes geom_bar labs theme_minimal
-#' plot_code_professions(df)
 
 plot_code_professions <- function(df) {
   validate_schema(df)
