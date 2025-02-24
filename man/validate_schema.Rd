@@ -7,7 +7,7 @@
 validate_schema(df)
 }
 \arguments{
-\item{df}{Un data frame devant être validé.}
+\item{df}{: Un data frame devant être validé.}
 }
 \value{
 Cette fonction ne retourne pas de valeur mais indique un message d'erreur si le schéma ne correspond pas.
@@ -20,4 +20,7 @@ df <- data.frame(Code.du.département = integer(),
                  Libellé.du.département = character(),
                  Code.de.la.commune = integer(),
                  Nom.de.l.élu = character())
+}
+\seealso{
+\code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 }

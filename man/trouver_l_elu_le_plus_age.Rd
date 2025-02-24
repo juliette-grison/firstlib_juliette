@@ -7,7 +7,7 @@
 trouver_l_elu_le_plus_age(df)
 }
 \arguments{
-\item{df}{Un data frame contenant le nom, le prénom, et la date de naissance des élus.}
+\item{df}{: Un data frame contenant le nom, le prénom, et la date de naissance des élus.}
 }
 \value{
 Un objet contenant le nom, le prénom, et l’âge de l’élu.
@@ -18,5 +18,8 @@ Cette fonction trouve l'élu le plus âgé dans une liste d'élus.
 \examples{
 df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin"),
                  Prénom.de.l.élu = c("Jean", "Sophie"),
-                 Date.de.naissance = c("01/01/1950", "15/07/1975"))
+                 Date.de.naissance = c("01-01-1950", "15-07-1975"))
+}
+\seealso{
+\code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}
 }

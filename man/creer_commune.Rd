@@ -7,7 +7,7 @@
 creer_commune(df)
 }
 \arguments{
-\item{df}{Un `data.frame` contenant les informations d'une commune.}
+\item{df}{: Un `data.frame` contenant les informations d'une commune.}
 }
 \value{
 Un objet de classe `commune`.
@@ -16,8 +16,8 @@ Un objet de classe `commune`.
 Cette fonction transforme un `data.frame` en objet de classe `commune`, en s'assurant que les colonnes nécessaires sont présentes.
 }
 \details{
-- Le `data.frame` doit contenir au moins les colonnes `Libellé.de.la.commune` et `Libellé.du.département`.
-- La classe de l'objet en sortie est définie comme `commune`, ce qui permet l'utilisation de méthodes spécifiques comme `plot.commune`.
+* Le `data.frame` doit contenir au moins les colonnes `Libellé.de.la.commune` et `Libellé.du.département`.
+* La classe de l'objet en sortie est définie comme `commune`, ce qui permet l'utilisation de méthodes spécifiques comme `plot.commune`.
 }
 \examples{
 \dontrun{
@@ -28,7 +28,10 @@ df <- data.frame(
   stringsAsFactors = FALSE
 )
 commune_obj <- creer_commune(df)
-class(commune_obj) # "commune"
+class(commune_obj)
 }
 
+}
+\seealso{
+\code{\link{creer_departement}}
 }

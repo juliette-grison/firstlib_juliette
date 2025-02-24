@@ -1,43 +1,40 @@
-#' Résumé des élu.e.s d'une commune
+#' @title Résumé des élu.e.s d'une commune
 #'
-#' Cette fonction fournit un résumé des élu.e.s d'une commune donnée sous forme de `data.frame`.
-#' Elle vérifie que l'objet est bien de classe `"commune"`, qu'il contient une seule commune,
+#' @description Cette fonction fournit un résumé des élu.e.s d'une commune donnée sous forme de `data.frame`.
+#' Elle vérifie que l'objet est bien de classe `commune`, qu'il contient une seule commune,
 #' et affiche des statistiques clés comme le nombre d'élu.e.s, la distribution des âges
 #' et l'élu.e le/la plus âgé.e.
 #'
-#' @param x Un objet de classe `"commune"`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.de.la.commune`.
+#' @param x Un objet de classe `commune`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.de.la.commune`.
 #' @param ... Arguments supplémentaires (actuellement non utilisés).
 #'
 #' @details La fonction effectue plusieurs vérifications :
-#' - Vérifie que `x` est bien un objet de classe `"commune"`.
-#' - Vérifie que `x` est un `data.frame`.
-#' - Vérifie que la colonne `Libellé.de.la.commune` est présente.
-#' - Vérifie que le `data.frame` ne contient qu'une seule commune.
+#' * Vérifie que `x` est bien un objet de classe `"commune"`.
+#' * Vérifie que `x` est un `data.frame`.
+#' * Vérifie que la colonne `Libellé.de.la.commune` est présente.
+#' * Vérifie que le `data.frame` ne contient qu'une seule commune.
 #'
 #' Ensuite, elle affiche :
-#' - Le nom de la commune.
-#' - Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
-#' - La distribution des âges des élu.e.s (`calcul_distribution_age()`).
-#' - L'élu.e le/la plus âgé.e (`trouver_l_elu_le_plus_age()`).
+#' * Le nom de la commune.
+#' * Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
+#' * La distribution des âges des élu.e.s (`calcul_distribution_age()`).
+#' * L'élu.e le/la plus âgé.e (`trouver_l_elu_le_plus_age()`).
 #'
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur la commune et ses élu.e.s.
 #'
 #' @importFrom dplyr filter select mutate arrange
 #'
-#' @seealso \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
+#' @seealso \code{\link{summary.departement}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 #'
 #' @examples
 #' df <- data.frame(
 #'   "Libellé.de.la.commune" = rep("Paris", 5),
 #'   "Nom.de.l.élu" = c("Dupont", "Martin", "Bernard", "Durand", "Petit"),
 #'   "Prénom.de.l.élu" = c("Jean", "Marie", "Paul", "Sophie", "Claire"),
-#'   "Date.de.naissance" = as.Date(c("1960-05-12", "1980-07-24", "1975-03-30", "1990-12-10", "1985-06-15"))
+#'   "Date.de.naissance" = as.Date(c("12-05-1960", "24-07-1980", "30-03-1975", "10-12-1990", "15-06-1985"))
 #' )
-#' class(df) <- c("commune", "data.frame") # Ajouter la classe 'commune'
-#' summary.commune(df)
-#'
+#' class(df) <- c("commune", "data.frame")
 #' @export
-
 summary.commune <- function(x, ...) {
   if (!inherits(x, "commune")) {
     stop("L'objet fourni n'est pas une commune")
@@ -76,38 +73,38 @@ summary.commune <- function(x, ...) {
   print(elu_plus_age)
 }
 
-#' Résumé des élu.e.s d'un département
+#' @title Résumé des élu.e.s d'un département
 #'
-#' Cette fonction fournit un résumé des élu.e.s d'un département donné sous forme de `data.frame`.
-#' Elle vérifie que l'objet est bien de classe `"departement"`, qu'il contient une seule département,
+#' @description Cette fonction fournit un résumé des élu.e.s d'un département donné sous forme de `data.frame`.
+#' Elle vérifie que l'objet est bien de classe `departement`, qu'il contient une seule département,
 #' et affiche des statistiques clés comme le nombre de communes, le nombre total d'élu.e.s,
 #' la distribution des âges et les élu.e.s les plus âgé.e.s et plus jeunes.
 #'
-#' @param x Un objet de classe `"departement"`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.du.département`.
+#' @param x Un objet de classe `departement`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.du.département`.
 #' @param ... Arguments supplémentaires (actuellement non utilisés).
 #'
 #' @details La fonction effectue plusieurs vérifications :
-#' - Vérifie que `x` est bien un objet de classe `"departement"`.
-#' - Vérifie que `x` est un `data.frame`.
-#' - Vérifie que la colonne `Libellé.du.département` est présente.
-#' - Vérifie que le `data.frame` ne contient qu'un seul département.
+#' * Vérifie que `x` est bien un objet de classe `"departement"`.
+#' * Vérifie que `x` est un `data.frame`.
+#' * Vérifie que la colonne `Libellé.du.département` est présente.
+#' * Vérifie que le `data.frame` ne contient qu'un seul département.
 #'
 #' Ensuite, elle affiche :
-#' - Le nom du département.
-#' - Le nombre total de communes dans ce département.
-#' - Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
-#' - La distribution des âges des élu.e.s (`calcul_distribution_age()`).
-#' - L'élu.e le/la plus âgé.e et sa commune.
-#' - L'élu.e le/la plus jeune et sa commune.
-#' - La commune avec la moyenne d'âge la plus faible et la distribution des âges de ses élu.e.s.
-#' - La commune avec la moyenne d'âge la plus élevée et la distribution des âges de ses élu.e.s.
+#' * Le nom du département.
+#' * Le nombre total de communes dans ce département.
+#' * Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
+#' * La distribution des âges des élu.e.s (`calcul_distribution_age()`).
+#' * L'élu.e le/la plus âgé.e et sa commune.
+#' * L'élu.e le/la plus jeune et sa commune.
+#' * La commune avec la moyenne d'âge la plus faible et la distribution des âges de ses élu.e.s.
+#' * La commune avec la moyenne d'âge la plus élevée et la distribution des âges de ses élu.e.s.
 #'
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur le département et ses élu.e.s.
 #'
 #' @importFrom dplyr group_by select slice mutate summarise slice pull filter
 #' @importFrom lubridate dmy
 #'
-#' @seealso \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
+#' @seealso \code{\link{summary.commune}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 #'
 #' @examples
 #' df <- data.frame(
@@ -115,15 +112,12 @@ summary.commune <- function(x, ...) {
 #'   "Libellé.de.la.commune" = rep(c("Nantes", "Saint-Nazaire", "Châteaubriant", "Ancenis", "Clisson"), each = 2),
 #'   "Nom.de.l.élu" = c("Dupont", "Martin", "Bernard", "Durand", "Petit", "Rousseau", "Lemoine", "Moreau", "Fabre", "Girard"),
 #'   "Prénom.de.l.élu" = c("Jean", "Marie", "Paul", "Sophie", "Claire", "Louis", "Julie", "Antoine", "Camille", "Luc"),
-#'   "Date.de.naissance" = as.Date(c("1960-05-12", "1980-07-24", "1975-03-30", "1990-12-10",
-#'                                    "1985-06-15", "1950-04-18", "2000-09-27", "1972-03-05",
-#'                                    "1995-11-22", "1988-08-30"))
+#'   "Date.de.naissance" = as.Date(c("12-05-1960", "24-07-1980", "30-03-1975", "10-12-1990",
+#'                                    "15-06-1985", "18-04-1950", "27-09-2000", "05-03-1972",
+#'                                    "22-11-1995", "30-08-1988"))
 #' )
-#' class(df) <- c("departement", "data.frame") # Ajouter la classe 'departement'
-#' summary.departement(df)
-#'
+#' class(df) <- c("departement", "data.frame")
 #' @export
-
 summary.departement <- function(x, ...) {
   if (!inherits(x, "departement")) {
     stop("L'objet fourni n'est pas un département.")
@@ -210,20 +204,22 @@ summary.departement <- function(x, ...) {
   print(distribution_age_max)
 }
 
-#' Visualisation des professions des élus d'une commune
-#' Cette fonction génère un graphique en barres représentant la répartition des élus d'une commune selon leur catégorie socio-professionnelle.
+#' @title Visualisation des professions des élus d'une commune
+#'
+#' @description Cette fonction génère un graphique en barres représentant la répartition des élus d'une commune selon leur catégorie socio-professionnelle.
 #'
 #' @param x Un objet de type `commune`, qui est un `data.frame` contenant les informations d'une seule commune.
 #' @param ... Arguments supplémentaires (actuellement non utilisés).
 #'
 #' @details
-#' - Le dataframe fourni doit contenir une seule commune et un seul département.
-#' - La fonction vérifie la présence des colonnes `Libellé.de.la.commune` et `Libellé.du.département`.
-#' - Le graphique affiche le nombre d'élus par code professionnel.
-#' - L'axe des abscisses indique le nombre total d'élus dans la commune.
-#' - Le titre du graphique correspond au nom de la commune suivi de celui du département.
+#' * La fonction vérifie la présence des colonnes `Libellé.de.la.commune` et `Libellé.du.département`.
+#' * Le graphique affiche le nombre d'élus par code professionnel.
+#' * L'axe des abscisses indique le nombre total d'élus dans la commune.
+#' * Le titre du graphique correspond au nom de la commune suivi de celui du département.
 #'
 #' @return Un graphique `ggplot` affichant la distribution des élus selon leur catégorie socio-professionnelle.
+#'
+#' @seealso \code{\link{summary.commune}}, \code{\link{summary.departement}}, \code{\link{plot.departement}}
 #'
 #' @examples
 #' \dontrun{
@@ -233,8 +229,6 @@ summary.departement <- function(x, ...) {
 #' @importFrom dplyr group_by summarise arrange
 #' @importFrom ggplot2 ggplot aes geom_bar labs theme_minimal
 #' @export
-#' plot.commune(df)
-
 plot.commune <- function(x, ...) {
   if (!inherits(x, "commune")) {
     stop("L'objet fourni n'est pas une commune")
@@ -282,18 +276,21 @@ plot.commune <- function(x, ...) {
 
 
 #' @title Visualisation des professions des élus d'un département
+#'
 #' @description Cette fonction génère un graphique en barres représentant la répartition des élus d'un département selon leur catégorie socio-professionnelle.
 #'
 #' @param x Un objet de type `departement`, qui est un `data.frame` contenant les informations des communes d'un département.
 #' @param ... Arguments supplémentaires (actuellement non utilisés).
 #'
 #' @details
-#' - Le dataframe fourni doit contenir un département avec plusieurs communes.
-#' - Le graphique affiche les 10 codes professionnels les plus représentés en nombre d'élus.
-#' - Le titre du graphique correspond au nom du département suivi du nombre de communes.
-#' - L'axe des abscisses précise le département concerné.
+#' * Le dataframe fourni doit contenir un département avec plusieurs communes.
+#' * Le graphique affiche les 10 codes professionnels les plus représentés en nombre d'élus.
+#' * Le titre du graphique correspond au nom du département suivi du nombre de communes.
+#' * L'axe des abscisses précise le département concerné.
 #'
 #' @return Un graphique `ggplot` affichant la distribution des 10 catégories socio-professionnelles les plus représentées.
+#'
+#' @seealso \code{\link{summary.commune}}, \code{\link{summary.departement}}, \code{\link{plot.commune}}
 #'
 #' @examples
 #' \dontrun{
@@ -303,8 +300,6 @@ plot.commune <- function(x, ...) {
 #' @importFrom dplyr group_by summarise arrange slice
 #' @importFrom ggplot2 ggplot aes geom_bar labs theme_minimal
 #' @export
-#' plot.departement(df)
-
 plot.departement <- function(x, ...) {
   if (!inherits(x, "departement")) {
     stop("L'objet fourni n'est pas un département.")

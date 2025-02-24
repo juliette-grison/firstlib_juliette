@@ -7,7 +7,7 @@
 calcul_distribution_age(df)
 }
 \arguments{
-\item{df}{Un data frame contenant la date de naissance des élus.}
+\item{df}{: Un data frame contenant la date de naissance des élus.}
 }
 \value{
 Un objet contenant les quantiles 0, 25, 50, 75, 100 de l’age des élus.
@@ -16,5 +16,8 @@ Un objet contenant les quantiles 0, 25, 50, 75, 100 de l’age des élus.
 Cette fonction  calcule les quantiles de l’age des élus.
 }
 \examples{
-df <- data.frame(Date.de.naissance = c("01/01/1950", "15/07/1975", "10/03/1990"))
+df <- data.frame(Date.de.naissance = c("01-01-1950", "15-07-1975", "10-03-1990"))
+}
+\seealso{
+\code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 }

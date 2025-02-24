@@ -7,7 +7,7 @@
 compter_nombre_d_elus(df)
 }
 \arguments{
-\item{df}{Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant le rôle de chaque élu.}
+\item{df}{: Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant le rôle de chaque élu.}
 }
 \value{
 Un  nombre unique d’élus basés sur l’unicité du triplet nom/prénom/date de naissance.
@@ -19,4 +19,7 @@ Cette fonction compte le nombre d'élus dans une liste.
 df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin", "Dupont"),
                  Prénom.de.l.élu = c("Jean", "Sophie", "Jean"),
                  Date.de.naissance = c("01/01/1980", "15/07/1975", "01/01/1980"))
+}
+\seealso{
+\code{\link{compter_nombre_d_adjoints}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 }

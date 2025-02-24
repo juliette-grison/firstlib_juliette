@@ -1,20 +1,11 @@
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
-
-#' Valider un schéma
+#' @title Valider un schéma
 #'
-#' Cette fonction vérifie si le dataframe (df) donné a les noms de colonnes attendus.
+#' @description Cette fonction vérifie si le dataframe (df) donné a les noms de colonnes attendus.
 #'
-#' @param df Un data frame devant être validé.
+#' @param df : Un data frame devant être validé.
 #' @return Cette fonction ne retourne pas de valeur mais indique un message d'erreur si le schéma ne correspond pas.
+#'
+#' @seealso \code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 #'
 #' @examples
 #' df <- data.frame(Code.du.département = integer(),
@@ -33,12 +24,14 @@ validate_schema <- function(df) {
   stopifnot(identical(colnames(df), schema))
 }
 
-#' Compter le nombre d'élus
+#' @title Compter le nombre d'élus
 #'
-#' Cette fonction compte le nombre d'élus dans une liste.
+#' @description Cette fonction compte le nombre d'élus dans une liste.
 #'
-#' @param df Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant le rôle de chaque élu.
+#' @param df : Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant le rôle de chaque élu.
 #' @return Un  nombre unique d’élus basés sur l’unicité du triplet nom/prénom/date de naissance.
+#'
+#' @seealso \code{\link{compter_nombre_d_adjoints}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 #'
 #' @examples
 #' df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin", "Dupont"),
@@ -54,13 +47,14 @@ compter_nombre_d_elus <- function(df) {
     nrow()
 }
 
-#' Compter le nombre d'adjoints
+#' @title Compter le nombre d'adjoints
 #'
-#' Cette fonction compte le nombre d'adjoints dans une liste d'élus.
+#' @description Cette fonction compte le nombre d'adjoints dans une liste d'élus.
 #'
-#' @param df Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant la fonction de chaque élu.
+#' @param df : Un data frame contenant une colonne "Libellé.de.la.fonction" indiquant la fonction de chaque élu.
 #' @return Un entier représentant le nombre d'adjoints.
 #'
+#' @seealso \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 #' @examples
 #' df_exemple <- data.frame(
 #'   Nom.de.l.élu = c("Dupont", "Martin", "Durand"),
@@ -77,17 +71,19 @@ compter_nombre_d_adjoints <- function(df) {
     nrow()
 }
 
-#' Trouver l'élu le plus âgé
+#' @title Trouver l'élu le plus âgé
 #'
-#' Cette fonction trouve l'élu le plus âgé dans une liste d'élus.
+#' @description Cette fonction trouve l'élu le plus âgé dans une liste d'élus.
 #'
-#' @param df Un data frame contenant le nom, le prénom, et la date de naissance des élus.
+#' @param df : Un data frame contenant le nom, le prénom, et la date de naissance des élus.
 #' @return Un objet contenant le nom, le prénom, et l’âge de l’élu.
+#'
+#' @seealso \code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{plot_code_professions}}
 #'
 #' @examples
 #' df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin"),
 #'                  Prénom.de.l.élu = c("Jean", "Sophie"),
-#'                  Date.de.naissance = c("01/01/1950", "15/07/1975"))
+#'                  Date.de.naissance = c("01-01-1950", "15-07-1975"))
 #' @importFrom dplyr mutate slice select
 #' @importFrom lubridate dmy interval years
 
@@ -102,14 +98,15 @@ trouver_l_elu_le_plus_age <- function(df) {
     select(Nom.de.l.élu, Prénom.de.l.élu, Âge)
 }
 
-#' Calculer la distribution de l'âge
+#' @title Calculer la distribution de l'âge
 #'
-#' Cette fonction  calcule les quantiles de l’age des élus.
+#' @description Cette fonction  calcule les quantiles de l’age des élus.
 #'
-#' @param df Un data frame contenant la date de naissance des élus.
+#' @param df : Un data frame contenant la date de naissance des élus.
 #' @return Un objet contenant les quantiles 0, 25, 50, 75, 100 de l’age des élus.
+#' @seealso \code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{plot_code_professions}}, \code{\link{trouver_l_elu_le_plus_age}}
 #' @examples
-#' df <- data.frame(Date.de.naissance = c("01/01/1950", "15/07/1975", "10/03/1990"))
+#' df <- data.frame(Date.de.naissance = c("01-01-1950", "15-07-1975", "10-03-1990"))
 #' @importFrom dplyr mutate summarise select
 #' @importFrom lubridate dmy
 
@@ -128,12 +125,13 @@ calcul_distribution_age <- function(df) {
     )
 }
 
-#' Compter le nombre d'élus ayant le même code professionnel.
+#' @title Compter le nombre d'élus ayant le même code professionnel.
 #'
-#' Cette fonction compte le nombre d'élus pour chaque code professionnel et le représentera avec un bar chart.
+#' @description Cette fonction compte le nombre d'élus pour chaque code professionnel et le représentera avec un bar chart.
 #'
-#' @param df Un data frame contenant les codes des catégories socioprofessionnelles des élus.
+#' @param df : Un data frame contenant les codes des catégories socioprofessionnelles des élus.
 #' @return Un bar chart contenant le nombre d'élus pour chaque code professionnel.
+#' @seealso \code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
 #'
 #' @examples
 #' df <- data.frame(Code.de.la.catégorie.socio.professionnelle = c("A", "B", "A", "C", "B", "A"))

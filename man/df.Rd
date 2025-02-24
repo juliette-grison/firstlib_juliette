@@ -15,13 +15,13 @@ Un (data.frame) de 489972 lignes et 16 colonnes avec les variables suivantes :
   \item{Libellé.de.la.commune}{Nom de la commune}
   \item{Nom.de.l.élu}{Nom de l'élu}
   \item{Prénom.de.l.élu}{Prénom de l'élu}
-  \item{Code.sexe}{Code indiquant le sexe de l’élu (ex: 1 = Homme, 2 = Femme)}
-  \item{Date.de.naissance}{Date de naissance de l'élu (au format AAAA-MM-JJ)}
+  \item{Code.sexe}{Code indiquant le sexe de l’élu (H = Homme, F = Femme)}
+  \item{Date.de.naissance}{Date de naissance de l'élu (au format JJ-MM-AAAA)}
   \item{Code.de.la.catégorie.socio.professionnelle}{Code de la catégorie socio-professionnelle de l'élu}
   \item{Libellé.de.la.catégorie.socio.professionnelle}{Libellé de la catégorie socio-professionnelle}
-  \item{Date.de.début.du.mandat}{Date de début du mandat de l'élu}
-  \item{Libellé.de.la.fonction}{Titre de la fonction occupée par l'élu}
-  \item{Date.de.début.de.la.fonction}{Date de début de la fonction occupée}
+  \item{Date.de.début.du.mandat}{Date de début du mandat de l'élu (au format JJ-MM-AAAA)}
+  \item{Libellé.de.la.fonction}{Titre de la fonction occupée par l'élu (si disponible)}
+  \item{Date.de.début.de.la.fonction}{Date de début de la fonction occupée (au format JJ-MM-AAAA) (si disponible)}
   \item{Code.nationalité}{Code de la nationalité de l'élu}
 }
 }
@@ -35,6 +35,19 @@ df
 Ce jeu de données contient des informations sur les élus d'une zone géographique spécifique en France, incluant leur catégorie socio-professionnelle, leur fonction et des détails administratifs.
 }
 \examples{
+# Charger les données
 data(df)
+
+# Afficher les premières lignes
+head(df)
+
+# Résumé statistique des variables
+summary(df)
+
+# Nombre d'élus par département
+table(df$Libellé.du.département)
+
+# Distribution des catégories socio-professionnelles
+table(df$Libellé.de.la.catégorie.socio.professionnelle)
 }
 \keyword{datasets}

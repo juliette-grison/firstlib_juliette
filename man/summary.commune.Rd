@@ -7,7 +7,7 @@
 \method{summary}{commune}(x, ...)
 }
 \arguments{
-\item{x}{Un objet de classe `"commune"`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.de.la.commune`.}
+\item{x}{Un objet de classe `commune`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.de.la.commune`.}
 
 \item{...}{Arguments supplémentaires (actuellement non utilisés).}
 }
@@ -16,34 +16,32 @@ La fonction ne retourne pas de valeur mais affiche des informations sur la commu
 }
 \description{
 Cette fonction fournit un résumé des élu.e.s d'une commune donnée sous forme de `data.frame`.
-Elle vérifie que l'objet est bien de classe `"commune"`, qu'il contient une seule commune,
+Elle vérifie que l'objet est bien de classe `commune`, qu'il contient une seule commune,
 et affiche des statistiques clés comme le nombre d'élu.e.s, la distribution des âges
 et l'élu.e le/la plus âgé.e.
 }
 \details{
 La fonction effectue plusieurs vérifications :
-- Vérifie que `x` est bien un objet de classe `"commune"`.
-- Vérifie que `x` est un `data.frame`.
-- Vérifie que la colonne `Libellé.de.la.commune` est présente.
-- Vérifie que le `data.frame` ne contient qu'une seule commune.
+* Vérifie que `x` est bien un objet de classe `"commune"`.
+* Vérifie que `x` est un `data.frame`.
+* Vérifie que la colonne `Libellé.de.la.commune` est présente.
+* Vérifie que le `data.frame` ne contient qu'une seule commune.
 
 Ensuite, elle affiche :
-- Le nom de la commune.
-- Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
-- La distribution des âges des élu.e.s (`calcul_distribution_age()`).
-- L'élu.e le/la plus âgé.e (`trouver_l_elu_le_plus_age()`).
+* Le nom de la commune.
+* Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
+* La distribution des âges des élu.e.s (`calcul_distribution_age()`).
+* L'élu.e le/la plus âgé.e (`trouver_l_elu_le_plus_age()`).
 }
 \examples{
 df <- data.frame(
   "Libellé.de.la.commune" = rep("Paris", 5),
   "Nom.de.l.élu" = c("Dupont", "Martin", "Bernard", "Durand", "Petit"),
   "Prénom.de.l.élu" = c("Jean", "Marie", "Paul", "Sophie", "Claire"),
-  "Date.de.naissance" = as.Date(c("1960-05-12", "1980-07-24", "1975-03-30", "1990-12-10", "1985-06-15"))
+  "Date.de.naissance" = as.Date(c("12-05-1960", "24-07-1980", "30-03-1975", "10-12-1990", "15-06-1985"))
 )
-class(df) <- c("commune", "data.frame") # Ajouter la classe 'commune'
-summary.commune(df)
-
+class(df) <- c("commune", "data.frame")
 }
 \seealso{
-\code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
+\code{\link{summary.departement}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 }

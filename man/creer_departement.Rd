@@ -7,7 +7,7 @@
 creer_departement(df)
 }
 \arguments{
-\item{df}{Un `data.frame` contenant les informations des communes d'un département.}
+\item{df}{: Un `data.frame` contenant les informations des communes d'un département.}
 }
 \value{
 Un objet de classe `departement`.
@@ -16,8 +16,8 @@ Un objet de classe `departement`.
 Cette fonction transforme un `data.frame` en objet de classe `departement`, en s'assurant que les colonnes nécessaires sont présentes.
 }
 \details{
-- Le `data.frame` doit contenir au moins les colonnes `Libellé.du.département` et `Libellé.de.la.commune`.
-- La classe de l'objet en sortie est définie comme `departement`, ce qui permet l'utilisation de méthodes spécifiques comme `plot.departement`.
+* Le `data.frame` doit contenir au moins les colonnes `Libellé.du.département` et `Libellé.de.la.commune`.
+* La classe de l'objet en sortie est définie comme `departement`, ce qui permet l'utilisation de méthodes spécifiques comme `plot.departement`.
 }
 \examples{
 \dontrun{
@@ -28,7 +28,10 @@ df_departement <- data.frame(
   stringsAsFactors = FALSE
 )
 departement_obj <- creer_departement(df_departement)
-class(departement_obj) # "departement"
+class(departement_obj)
 }
 
+}
+\seealso{
+\code{\link{creer_commune}}
 }

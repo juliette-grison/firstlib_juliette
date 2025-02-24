@@ -7,7 +7,7 @@
 \method{summary}{departement}(x, ...)
 }
 \arguments{
-\item{x}{Un objet de classe `"departement"`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.du.département`.}
+\item{x}{Un objet de classe `departement`, sous forme de `data.frame`, contenant au moins une colonne `Libellé.du.département`.}
 
 \item{...}{Arguments supplémentaires (actuellement non utilisés).}
 }
@@ -16,26 +16,26 @@ La fonction ne retourne pas de valeur mais affiche des informations sur le dépa
 }
 \description{
 Cette fonction fournit un résumé des élu.e.s d'un département donné sous forme de `data.frame`.
-Elle vérifie que l'objet est bien de classe `"departement"`, qu'il contient une seule département,
+Elle vérifie que l'objet est bien de classe `departement`, qu'il contient une seule département,
 et affiche des statistiques clés comme le nombre de communes, le nombre total d'élu.e.s,
 la distribution des âges et les élu.e.s les plus âgé.e.s et plus jeunes.
 }
 \details{
 La fonction effectue plusieurs vérifications :
-- Vérifie que `x` est bien un objet de classe `"departement"`.
-- Vérifie que `x` est un `data.frame`.
-- Vérifie que la colonne `Libellé.du.département` est présente.
-- Vérifie que le `data.frame` ne contient qu'un seul département.
+* Vérifie que `x` est bien un objet de classe `"departement"`.
+* Vérifie que `x` est un `data.frame`.
+* Vérifie que la colonne `Libellé.du.département` est présente.
+* Vérifie que le `data.frame` ne contient qu'un seul département.
 
 Ensuite, elle affiche :
-- Le nom du département.
-- Le nombre total de communes dans ce département.
-- Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
-- La distribution des âges des élu.e.s (`calcul_distribution_age()`).
-- L'élu.e le/la plus âgé.e et sa commune.
-- L'élu.e le/la plus jeune et sa commune.
-- La commune avec la moyenne d'âge la plus faible et la distribution des âges de ses élu.e.s.
-- La commune avec la moyenne d'âge la plus élevée et la distribution des âges de ses élu.e.s.
+* Le nom du département.
+* Le nombre total de communes dans ce département.
+* Le nombre total d'élu.e.s (`compter_nombre_d_elus()`).
+* La distribution des âges des élu.e.s (`calcul_distribution_age()`).
+* L'élu.e le/la plus âgé.e et sa commune.
+* L'élu.e le/la plus jeune et sa commune.
+* La commune avec la moyenne d'âge la plus faible et la distribution des âges de ses élu.e.s.
+* La commune avec la moyenne d'âge la plus élevée et la distribution des âges de ses élu.e.s.
 }
 \examples{
 df <- data.frame(
@@ -43,14 +43,12 @@ df <- data.frame(
   "Libellé.de.la.commune" = rep(c("Nantes", "Saint-Nazaire", "Châteaubriant", "Ancenis", "Clisson"), each = 2),
   "Nom.de.l.élu" = c("Dupont", "Martin", "Bernard", "Durand", "Petit", "Rousseau", "Lemoine", "Moreau", "Fabre", "Girard"),
   "Prénom.de.l.élu" = c("Jean", "Marie", "Paul", "Sophie", "Claire", "Louis", "Julie", "Antoine", "Camille", "Luc"),
-  "Date.de.naissance" = as.Date(c("1960-05-12", "1980-07-24", "1975-03-30", "1990-12-10",
-                                   "1985-06-15", "1950-04-18", "2000-09-27", "1972-03-05",
-                                   "1995-11-22", "1988-08-30"))
+  "Date.de.naissance" = as.Date(c("12-05-1960", "24-07-1980", "30-03-1975", "10-12-1990",
+                                   "15-06-1985", "18-04-1950", "27-09-2000", "05-03-1972",
+                                   "22-11-1995", "30-08-1988"))
 )
-class(df) <- c("departement", "data.frame") # Ajouter la classe 'departement'
-summary.departement(df)
-
+class(df) <- c("departement", "data.frame")
 }
 \seealso{
-\code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
+\code{\link{summary.commune}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 }

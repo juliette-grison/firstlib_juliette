@@ -7,7 +7,7 @@
 plot_code_professions(df)
 }
 \arguments{
-\item{df}{Un data frame contenant les codes des catégories socioprofessionnelles des élus.}
+\item{df}{: Un data frame contenant les codes des catégories socioprofessionnelles des élus.}
 }
 \value{
 Un bar chart contenant le nombre d'élus pour chaque code professionnel.
@@ -17,4 +17,7 @@ Cette fonction compte le nombre d'élus pour chaque code professionnel et le rep
 }
 \examples{
 df <- data.frame(Code.de.la.catégorie.socio.professionnelle = c("A", "B", "A", "C", "B", "A"))
+}
+\seealso{
+\code{\link{compter_nombre_d_adjoints}}, \code{\link{compter_nombre_d_elus}}, \code{\link{calcul_distribution_age}}, \code{\link{trouver_l_elu_le_plus_age}}
 }

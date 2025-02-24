@@ -18,14 +18,17 @@ Un graphique `ggplot` affichant la distribution des 10 catégories socio-profess
 Cette fonction génère un graphique en barres représentant la répartition des élus d'un département selon leur catégorie socio-professionnelle.
 }
 \details{
-- Le dataframe fourni doit contenir un département avec plusieurs communes.
-- Le graphique affiche les 10 codes professionnels les plus représentés en nombre d'élus.
-- Le titre du graphique correspond au nom du département suivi du nombre de communes.
-- L'axe des abscisses précise le département concerné.
+* Le dataframe fourni doit contenir un département avec plusieurs communes.
+* Le graphique affiche les 10 codes professionnels les plus représentés en nombre d'élus.
+* Le titre du graphique correspond au nom du département suivi du nombre de communes.
+* L'axe des abscisses précise le département concerné.
 }
 \examples{
 \dontrun{
 plot.departement(df_mon_departement)
 }
 
+}
+\seealso{
+\code{\link{summary.commune}}, \code{\link{summary.departement}}, \code{\link{plot.commune}}
 }
