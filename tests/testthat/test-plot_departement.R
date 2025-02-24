@@ -1,3 +1,6 @@
+library(dplyr)
+library(ggplot2)
+
 test_that("plot.departement génère un ggplot valide", {
   df <- data.frame(
     Libellé.du.département = "Gironde",

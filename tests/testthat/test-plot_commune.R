@@ -1,3 +1,6 @@
+library(dplyr)
+library(ggplot2)
+
 test_that("plot.commune génère un ggplot valide", {
   df <- data.frame(
     Libellé.de.la.commune = "Paris",
