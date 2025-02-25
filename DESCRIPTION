@@ -10,7 +10,7 @@ Description: Un système pour fournir des outils pour l'analyse des données des
     et de visualiser certaines distributions sous forme de graphiques. 
 License: MIT
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Imports : 
     dplyr,
     ggplot2
