@@ -10,11 +10,12 @@ Description: Un système pour fournir des outils pour l'analyse des données des
     et de visualiser certaines distributions sous forme de graphiques. 
 License: MIT
 Encoding: UTF-8
-LazyData: false
+LazyData: true
 Imports : 
     dplyr,
-    ggplot2
-    lubridate
+    ggplot2,
+    lubridate,
+    stringr
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
