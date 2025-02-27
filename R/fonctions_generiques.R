@@ -292,7 +292,7 @@ plot.commune <- function(x, ...) {
 #' plot.departement(df_mon_departement)
 #' }
 #'
-#' @importFrom dplyr group_by summarise arrange slice
+#' @importFrom dplyr group_by summarise arrange slice slice_head
 #' @importFrom ggplot2 ggplot aes geom_bar labs theme_minimal
 #' @export
 plot.departement <- function(x, ...) {
