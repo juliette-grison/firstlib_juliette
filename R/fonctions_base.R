@@ -85,7 +85,7 @@ compter_nombre_d_adjoints <- function(df) {
 #'                  Prénom.de.l.élu = c("Jean", "Sophie"),
 #'                  Date.de.naissance = c("01-01-1950", "15-07-1975"))
 #' @importFrom dplyr mutate slice select
-#' @importFrom lubridate dmy interval years
+#' @importFrom lubridate dmy interval years today
 
 trouver_l_elu_le_plus_age <- function(df) {
   validate_schema(df)
