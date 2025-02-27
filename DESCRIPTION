@@ -14,7 +14,9 @@ LazyData: true
 Imports : 
     dplyr,
     ggplot2,
-    lubridate
+    lubridate,
+    quarto,
+    yaml
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
