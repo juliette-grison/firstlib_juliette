@@ -23,7 +23,7 @@
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur la commune et ses élu.e.s.
 #'
 #' @importFrom dplyr arrange distinct filter mutate select slice summarise
-#' @importFrom lubridate dmy intervall years
+#' @importFrom lubridate dmy interval years
 #'
 #' @seealso \code{\link{summary.departement}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 #'
