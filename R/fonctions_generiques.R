@@ -134,12 +134,6 @@ summary.departement <- function(x, ...) {
     stop("La colonne 'Libellé.du.département' est absente du dataframe.")
   }
 
-  # Extraire le nom du département
-  nom_departement <- unique(x$Libellé.du.département)
-  if (length(nom_departement) != 1) {
-    stop("Le dataframe contient plusieurs départements. Fournissez un dataframe ne contenant qu'un seul département.")
-  }
-
   # Nombre de communes dans le département
   nombre_communes <- length(unique(x$Libellé.de.la.commune))
 
