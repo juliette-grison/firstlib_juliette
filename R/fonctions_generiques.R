@@ -102,7 +102,7 @@ summary.commune <- function(x, ...) {
 #'
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur le département et ses élu.e.s.
 #'
-#' @importFrom dplyr group_by select slice mutate summarise slice pull filter distinct
+#' @importFrom dplyr group_by select slice mutate summarise slice pull filter distinct ungroup
 #' @importFrom lubridate dmy
 #'
 #' @seealso \code{\link{summary.commune}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
