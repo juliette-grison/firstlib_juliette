@@ -22,7 +22,8 @@
 #'
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur la commune et ses élu.e.s.
 #'
-#' @importFrom dplyr filter select mutate arrange
+#' @importFrom dplyr arrange distinct filter mutate select slice summarise
+#' @importFrom lubridate dmy intervall years
 #'
 #' @seealso \code{\link{summary.departement}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
 #'
@@ -101,7 +102,7 @@ summary.commune <- function(x, ...) {
 #'
 #' @return La fonction ne retourne pas de valeur mais affiche des informations sur le département et ses élu.e.s.
 #'
-#' @importFrom dplyr group_by select slice mutate summarise slice pull filter
+#' @importFrom dplyr group_by select slice mutate summarise slice pull filter distinct
 #' @importFrom lubridate dmy
 #'
 #' @seealso \code{\link{summary.commune}}, \code{\link{plot.commune}}, \code{\link{plot.departement}}
