@@ -178,7 +178,7 @@ summary.departement <- function(x, ...) {
   distribution_age_max <- calcul_distribution_age(x |> filter(Libellé.de.la.commune == commune_age_max))
 
   # Affichage des résultats
-  cat("\nNom du département :", Libellé.du.département, "\n")
+  cat("\nNom du département :", unique(x$Libellé.du.département), "\n")
   cat("Nombre de communes :", nombre_communes, "\n")
   cat("Nombre d'élu.e.s :", nombre_elus, "\n")
   cat("Distribution des âges des élu.e.s du département :\n")
