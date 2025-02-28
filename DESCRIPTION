@@ -2,7 +2,7 @@ Package: firstlibjuliette
 Type: Package
 Title: Fournir des Outils d’Analyses des Données du Répertoire d’Analyses des Élus
 Version: 0.1.0
-Author@R: person("Juliette", "Grison",
+Authors@R: person("Juliette", "Grison",
     email = "juliette.grison@gmail.com",
     role = c("aut", "cre"))
 Description: Un système pour fournir des outils pour l'analyse des données des élus locaux en France. 
