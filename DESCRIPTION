@@ -10,6 +10,7 @@ Description: Un système pour fournir des outils pour l'analyse des données des
     et de visualiser certaines distributions sous forme de graphiques. 
 License: MIT
 Encoding: UTF-8
+Roxygen : list(markdown = TRUE)
 LazyData: true
 Imports : 
     dplyr,
@@ -18,6 +19,8 @@ Imports :
     quarto,
     yaml
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 RoxygenNote: 7.3.2

@@ -12,6 +12,8 @@
 #'   pour lequel générer le rapport (par exemple, "Gironde").
 #' @param output Le chemin du fichier où le rapport généré sera sauvegardé.
 #'
+#' @return Un fichier rapport généré.
+#'
 #' @import quarto
 #' @import yaml
 #'

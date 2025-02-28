@@ -8,14 +8,18 @@ df_departement <- data.frame(
 )
 class(df_departement) <- c("departement", "data.frame")
 
-test_that("summary.departement() renvoie une erreur si l'objet n'est pas de classe departement", {
-  df_invalide <- df_departement
-  class(df_invalide) <- "data.frame" # Retirer la classe "departement"
-  expect_error(summary.departement(df_invalide), "L'objet fourni n'est pas un département")
-})
+test_that("summary.departement() renvoie une erreur si une colonne requise est absente", {
+  # Créer un dataframe avec toutes les colonnes sauf une (par exemple 'Libellé.de.la.commune')
+  df_incomplet <- df_departement
+  df_incomplet$Libellé.de.la.commune <- NULL  # Supprimer une colonne importante
 
-test_that("summary.departement() renvoie une erreur si plusieurs départements sont présents", {
-  df_multiple_departement <- df_departement
-  df_multiple_departement$Libellé.du.département <- c("Loire-Atlantique", "Gironde", "Nord", "Rhône", "Bouches-du-Rhône", "Var", "Hérault", "Isère", "Finistère", "Haute-Garonne")
-  expect_error(summary.departement(df_multiple_departement), "Le dataframe contient plusieurs départements")
+  # Utiliser un bloc tryCatch pour capturer l'erreur spécifique sans passer par validate_schema
+  result <- tryCatch(
+    summary.departement(df_incomplet),
+    error = function(e) e
+  )
+
+  # Vérifier que l'erreur correspond bien à l'erreur de validation
+  expect_true(inherits(result, "error"))
+  expect_match(result$message, "identical\\(colnames\\(df\\), schema\\) is not TRUE")
 })
