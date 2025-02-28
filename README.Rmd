@@ -1,0 +1,109 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# firstlibjuliette
+
+## Présentation
+
+`firstlibjuliette` est un package R conçu pour fournir des outils d’analyse des données des élus locaux en France.  
+Il permet de :
+- Valider le format des données,
+- Calculer des statistiques sur les élus (âge, fonction, distribution des professions, etc.),
+- Visualiser certaines distributions sous forme de graphiques.
+
+Ce package facilite l'analyse des données en proposant des fonctions dédiées aux communes et aux départements.
+
+## Installation
+
+Pour installer `firstlibjuliette` depuis GitHub, utilisez :
+
+```{r}
+# Installer devtools si ce n'est pas déjà fait
+install.packages("remotes")
+
+# Installer firstlibjuliette
+remotes::install_github("juliette-grison/firstlib_juliette")
+```
+
+## Utilisation
+
+### Charger le package
+
+```{r}
+library(firstlibjuliette)
+```
+
+### Exemple : Analyser une commune 
+
+```{r}
+# Import de la base de données
+df <- firstlibjuliette::df
+
+# Sélection du data.frame
+df_bordeaux <- df[df[["Libellé.de.la.commune"]] == "Bordeaux", ]
+
+# Création d'un objet commune
+df_bordeaux <- creer_commune(df_bordeaux)
+
+# Résumé des informations de la commune
+summary(df_bordeaux)
+
+# Visualisation des professions des élus
+plot(df_bordeaux)
+```
+
+### Exemple : Analyser un département
+
+```{r}
+# Import de la base de données
+df <- firstlibjuliette::df
+
+# Sélection du data.frame
+df_gironde <- df[df[["Libellé.du.département"]] == "Gironde", ]
+
+# Création d'un objet commune
+df_gironde <- creer_departement(df_gironde)
+
+# Résumé des informations de la commune
+summary(df_gironde)
+
+# Visualisation des professions des élus
+plot(df_gironde)
+```
+
+## Aperçu des fonctionnalités principales
+
+### Fonctions de création
+
+creer_commune() : Convertit un data.frame en objet commune.
+
+creer_departement() : Convertit un data.frame en objet departement.
+
+### Fonctions d'analyse
+
+summary.commune() : Affiche des statistiques clés sur une commune.
+
+summary.departement() : Affiche des statistiques clés sur un département.
+
+### Fonctions de visualisation
+
+plot.commune() : Génère un graphique des professions des élus d'une commune.
+
+plot.departement() : Génère un graphique des professions des élus d'un département.
+
+## Compléments et documentation
+
+Pour plus de détails, consultez les vignettes et la documentation complète sur le site du package : https://juliette-grison.github.io/firstlib_juliette/.
+
+Ce package s'inscrit dans l'analyse des données publiques sur les élus locaux et peut être utilisé pour la recherche, la transparence et l'exploration des données électorales en France.
+

@@ -1,4 +1,24 @@
 url: https://juliette-grison.github.io/firstlib_juliette/
-template:
-  bootstrap: 5
 
+sidebars:
+  - Home
+  - Reference
+
+navbar:
+  structure:
+    left:
+      - Home
+      - Reference
+  components:
+    - Search
+    - Github
+github:
+  user: juliette-grison
+  repo: firstlib_juliette
+reference:
+  - create: "Fonctions de création"
+  - analyse: "Fonctions d'analyse"
+  - visualisation: "Fonctions de visualisation"
+License:
+  text: "Licence : MIT"
+  link: "https://opensource.org/license/mit"
