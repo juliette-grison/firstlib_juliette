@@ -19,6 +19,13 @@ reference:
   - create: "Fonctions de création"
   - analyse: "Fonctions d'analyse"
   - visualisation: "Fonctions de visualisation"
+functions:
+  - creer_commune
+  - creer_departement
+  - summary.commune
+  - summary.departement
+  - plot.commune
+  - plot.departement
 License:
   text: "Licence : MIT"
   link: "https://opensource.org/license/mit"
