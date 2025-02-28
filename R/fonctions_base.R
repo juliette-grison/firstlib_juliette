@@ -12,6 +12,7 @@
 #'                  Libellé.du.département = character(),
 #'                  Code.de.la.commune = integer(),
 #'                  Nom.de.l.élu = character())
+#' @keywords internal
 
 validate_schema <- function(df) {
   schema <- c("Code.du.département", "Libellé.du.département", "Code.de.la.collectivité.à.statut.particulier",
@@ -38,6 +39,7 @@ validate_schema <- function(df) {
 #'                  Prénom.de.l.élu = c("Jean", "Sophie", "Jean"),
 #'                  Date.de.naissance = c("01/01/1980", "15/07/1975", "01/01/1980"))
 #' @importFrom dplyr select distinct
+#' @keywords internal
 
 compter_nombre_d_elus <- function(df) {
   validate_schema(df)
@@ -62,6 +64,7 @@ compter_nombre_d_elus <- function(df) {
 #'   Libellé.de.la.fonction = c("Maire", "Adjoint au maire", "Adjoint aux sports")
 #' )
 #' @importFrom dplyr filter
+#' @keywords internal
 
 compter_nombre_d_adjoints <- function(df) {
   validate_schema(df)
@@ -86,6 +89,7 @@ compter_nombre_d_adjoints <- function(df) {
 #'                  Date.de.naissance = c("01-01-1950", "15-07-1975"))
 #' @importFrom dplyr mutate slice select
 #' @importFrom lubridate dmy interval years today
+#' @keywords internal
 
 trouver_l_elu_le_plus_age <- function(df) {
   validate_schema(df)
@@ -109,6 +113,7 @@ trouver_l_elu_le_plus_age <- function(df) {
 #' df <- data.frame(Date.de.naissance = c("01-01-1950", "15-07-1975", "10-03-1990"))
 #' @importFrom dplyr mutate summarise select
 #' @importFrom lubridate dmy
+#' @keywords internal
 
 calcul_distribution_age <- function(df) {
   validate_schema(df)
@@ -137,6 +142,7 @@ calcul_distribution_age <- function(df) {
 #' df <- data.frame(Code.de.la.catégorie.socio.professionnelle = c("A", "B", "A", "C", "B", "A"))
 #' @importFrom dplyr group_by summarise arrange
 #' @importFrom ggplot2 ggplot aes geom_bar labs theme_minimal
+#' @keywords internal
 
 plot_code_professions <- function(df) {
   validate_schema(df)
