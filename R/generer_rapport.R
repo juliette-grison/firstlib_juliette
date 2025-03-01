@@ -26,16 +26,13 @@ generer_rapport <- function(commune, departement, output) {
     stop("Le fichier rapport.qmd n'a pas été trouvé dans le package.")
   }
 
-  # Créer un fichier YAML temporaire avec les paramètres
   params <- list(code_commune = commune, code_departement = departement)
   params_path <- tempfile(fileext = ".yml")
   yaml::write_yaml(params, params_path)
 
-  # Utiliser quarto::quarto_render pour générer le rapport
   quarto::quarto_render(input = rapport_path,
-                        output_file = output,   # Spécifier le fichier de sortie
-                        execute_params = params_path)  # Passer le fichier YAML temporaire
+                        output_file = output,
+                        execute_params = params_path)
 
-  # Supprimer le fichier temporaire après l'exécution
   unlink(params_path)
 }
